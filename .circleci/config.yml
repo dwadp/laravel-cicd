@@ -8,8 +8,7 @@ jobs:
       - checkout
       - store_test_results:
           path: .
-      - run: php --version
-      - run: composer --version
+      - run: php artisan test
 
 workflows:
   run_test:
