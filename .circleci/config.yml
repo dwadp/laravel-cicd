@@ -40,7 +40,7 @@ jobs:
           name: Deploy
           no_output_timeout: "1m"
           command: |
-            ssh -vvv $SSH_USER@$SSH_HOST "pwd"
+            dep deploy -vvv
 
 workflows:
   run_test:

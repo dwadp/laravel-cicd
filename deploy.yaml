@@ -3,6 +3,7 @@ import:
 
 config:
   repository: 'git@github.com:dwadp/laravel-cicd.git'
+  php_fpm_version: '8.1'
 
 hosts:
   prod:
