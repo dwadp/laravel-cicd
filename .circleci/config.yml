@@ -8,6 +8,14 @@ jobs:
       - checkout
       - store_test_results:
           path: .
+      - run:
+          name: Install dependencies
+          command: composer install
+      - run:
+          name: Setup environment
+          command: |
+            cp .env.example .env
+            php artisan key:generate
       - run: php artisan test
 
 workflows:
