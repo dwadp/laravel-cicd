@@ -37,7 +37,8 @@ jobs:
             sudo chmod +x /usr/local/bin/dep
       - run:
           name: Deploy
-          command: dep deploy -vvv
+          command: |
+            whoami | dep ssh
 
 workflows:
   run_test:
