@@ -24,6 +24,9 @@ jobs:
     working_directory: ~/app
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - $SSH_FINGERPRINT
       - run:
           name: Install deployer
           command: |
