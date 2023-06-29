@@ -38,7 +38,6 @@ jobs:
             - "a2:2b:70:c2:6f:2a:4b:d0:51:70:e1:e6:df:6a:ae:a3"
       - run:
           name: Deploy
-          no_output_timeout: "1m"
           command: |
             dep deploy -vvv
 
