@@ -27,6 +27,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "cd:f3:7a:39:39:8a:5e:8c:ba:1f:ff:fb:7a:01:28:78"
+      - run: ssh-keyscan $SERVER_HOST >> ~/.ssh/known_hosts
       - run:
           name: Install deployer
           command: |
