@@ -7,7 +7,7 @@ config:
 hosts:
   prod:
     remote_user: cicd
-    hostname: 'laravel.dwadp.com'
+    hostname: '103.49.238.253'
     deploy_path: '/var/www/{{hostname}}'
 
 tasks:
