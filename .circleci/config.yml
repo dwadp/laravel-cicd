@@ -39,7 +39,7 @@ jobs:
       - run:
           name: Deploy
           command: |
-            dep deploy -vvv
+            dep deploy
 
 workflows:
   run_test:
