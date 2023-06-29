@@ -37,6 +37,7 @@ jobs:
             sudo chmod +x /usr/local/bin/dep
       - run:
           name: Deploy
+          no_output_timeout: "1m"
           command: |
             ssh $SERVER_USER@$SERVER_HOST "whoami"
 
