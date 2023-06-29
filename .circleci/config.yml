@@ -37,7 +37,7 @@ jobs:
             sudo chmod +x /usr/local/bin/dep
       - run:
           name: Deploy
-          command: dep deploy
+          command: dep deploy -vvv
 
 workflows:
   run_test:
