@@ -23,11 +23,7 @@ jobs:
       - image: cimg/php:8.1.20
     working_directory: ~/app
     steps:
-      - add_ssh_keys:
-          fingerprints:
-            - "cd:f3:7a:39:39:8a:5e:8c:ba:1f:ff:fb:7a:01:28:78"
       - checkout
-      - run: ssh-keyscan $SSH_HOST >> ~/.ssh/known_hosts
       - run:
           name: Install deployer
           command: |
@@ -35,6 +31,10 @@ jobs:
             php -r "if (hash_file('sha1', 'deployer.phar') === '7fc18128545bebaa13fc7f3daa79b3e1fa67fd1e') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('deployer.phar'); } echo PHP_EOL;"
             sudo mv deployer.phar /usr/local/bin/dep
             sudo chmod +x /usr/local/bin/dep
+      - add_ssh_keys:
+          fingerprints:
+            - "cd:f3:7a:39:39:8a:5e:8c:ba:1f:ff:fb:7a:01:28:78"
+      - run: ssh-keyscan $SSH_HOST >> ~/.ssh/known_hosts2
       - run:
           name: Deploy
           no_output_timeout: "1m"
