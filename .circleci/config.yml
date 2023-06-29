@@ -18,7 +18,24 @@ jobs:
             php artisan key:generate
       - run: php artisan test
 
+  deploy:
+    docker:
+      - image: cimg/php:8.1.20
+    steps:
+      - checkout
+      - run:
+          name: Install deployer
+          command: |
+            curl -LO https://github.com/deployphp/deployer/releases/download/v7.3.0/deployer.phar
+            php -r "if (hash_file('sha1', 'deployer.phar') === '7fc18128545bebaa13fc7f3daa79b3e1fa67fd1e') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('deployer.phar'); } echo PHP_EOL;"
+            mv deployer.phar /usr/local/bin/dep
+            chmod +x /usr/local/bin/dep
+            dep --version
+
 workflows:
   run_test:
     jobs:
       - test
+      - deploy:
+          requires:
+            - test
