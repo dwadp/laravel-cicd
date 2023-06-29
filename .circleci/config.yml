@@ -26,7 +26,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - $SSH_FINGERPRINT
+            - "cd:f3:7a:39:39:8a:5e:8c:ba:1f:ff:fb:7a:01:28:78"
       - run:
           name: Install deployer
           command: |
