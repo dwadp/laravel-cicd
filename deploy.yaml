@@ -1,0 +1,18 @@
+import:
+  - recipe/laravel.php
+
+config:
+  repository: 'git@github.com:dwadp/laravel-cicd.git'
+
+hosts:
+  prod:
+    remote_user: cicd
+    hostname: 'laravel.dwadp.com'
+    deploy_path: '/var/www/{{hostname}}'
+
+tasks:
+  build:
+    - run: uptime
+
+after:
+  deploy:failed: deploy:unlock
